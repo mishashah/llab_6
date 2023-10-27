@@ -1,3 +1,4 @@
+#Misha Shah
 #define variables
 value = 0
 new_pw = 0
@@ -26,6 +27,21 @@ def encoder(orig_pw):
         new_encoded_pw += str(new_pw)
     return new_encoded_pw
 
+# Victoria Capparelli (created decode function)
+def decode(encoded_pw):
+    decoded_pw = ""
+    for dig in encoded_pw:
+        curr_dig = int(dig)
+        curr_dig = curr_dig - 3
+        if curr_dig < 0:
+            curr_dig = 10 + curr_dig
+
+        decoded_pw += str(curr_dig)
+
+    return decoded_pw
+
+
+
 #what happens when each option is selected
 if __name__ == '__main__':
     situation = True
@@ -37,7 +53,8 @@ if __name__ == '__main__':
             print("Your password has been encoded and stored!")
             print()
         elif option == 2:
-            print(f"The encoded password is {encoded_pw} and the original password is {orig_pw}")
+            # Victoria Capparelli (replaced the second {} with the decoder function)
+            print(f"The encoded password is {encoded_pw} and the original password is {decode(encoded_pw)}")
             print()
         elif option == 3:
             situation = False
